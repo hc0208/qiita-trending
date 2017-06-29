@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd $(dirname $0)
+$0
 
 file_name=`date +%Y-%m-%d`
 path="$(cd $(dirname $0) && pwd)/posts/${file_name}.md"
