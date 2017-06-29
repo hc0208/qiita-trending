@@ -1,8 +1,9 @@
 #!/bin/sh
 
 file_name=`date +%Y-%m-%d`
+path="$(cd $(dirname $0) && pwd)/posts/${file_name}.md"
 
-if [ ! -e "posts/${file_name}.md" ]; then
+if [ ! -e $path ]; then
   items=`curl -s http://qiita.com/popular-items/feed | \
          grep -o '<title>.*</title>\|http://qiita.com/.*?' | \
          sed -e '1d' -e 's/  //' -e 's/?$//' -e 's/^<title>//' -e 's/<\/title>$//'`
@@ -15,7 +16,7 @@ if [ ! -e "posts/${file_name}.md" ]; then
     if [ $(( count % 2 )) == 0 ]; then
       title="- [${items}]"
       row=$title$url
-      echo $row >> "posts/${file_name}.md"
+      echo $row >> $path
     else
       url="(${items})"
     fi
