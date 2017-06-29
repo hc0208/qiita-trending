@@ -13,7 +13,7 @@ if [ ! -e "posts/${file_name}.md" ]; then
   for items in `echo "$items"`
   do
     if [ $(( count % 2 )) == 0 ]; then
-      title=[$items]
+      title="- [${items}]"
       row=$title$url
       echo $row >> "posts/${file_name}.md"
     else
@@ -24,5 +24,5 @@ if [ ! -e "posts/${file_name}.md" ]; then
 
   git add .
   git commit -m "add post ${file_name}.md"
-  git push origin master --force
+  git push origin master
 fi
