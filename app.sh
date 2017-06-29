@@ -24,5 +24,5 @@ if [ ! -e "posts/${file_name}.md" ]; then
 
   git add .
   git commit -m "add post ${file_name}.md"
-  git push origin master
+  git push origin master --force
 fi
