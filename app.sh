@@ -6,9 +6,9 @@ file_name=`date +%Y-%m-%d`
 path="$(cd $(dirname $0) && pwd)/posts/${file_name}.md"
 
 if [ ! -e $path ]; then
-  items=`curl -s http://qiita.com/popular-items/feed | \
+  items=`curl -s https://qiita.com/popular-items/feed | \
          grep -o '<title>.*</title>\|http://qiita.com/.*?' | \
-         sed -e '1d' -e 's/  //' -e 's/?$//' -e 's/^<title>//' -e 's/<\/title>$//'`
+         sed -e '1d' -e 's/?$//' -e 's/^<title>//' -e 's/<\/title>$//'`
 
   IFS=$'\n'
   count=1
