@@ -1,4 +1,4 @@
 qiita-trending
 ====
-Tracking the most popular Qiita Items.
+Tracking the most popular Qiita items.
 
